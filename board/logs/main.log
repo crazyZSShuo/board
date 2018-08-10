@@ -1,0 +1,490 @@
+[2018-08-06 12:00:35,720] [django.request:152] [WARNING] Not Found: /
+[2018-08-06 12:00:35,732] [django.server:124] [WARNING] "GET / HTTP/1.1" 404 2031
+[2018-08-06 12:00:35,963] [django.request:152] [WARNING] Not Found: /favicon.ico
+[2018-08-06 12:00:35,968] [django.server:124] [WARNING] "GET /favicon.ico HTTP/1.1" 404 2082
+[2018-08-06 12:00:48,513] [django.server:124] [INFO] "GET /admin HTTP/1.1" 301 0
+[2018-08-06 12:00:48,551] [django.request:135] [ERROR] Internal Server Error: /admin/
+Traceback (most recent call last):
+  File "C:\Users\Administrator\AppData\Local\Programs\Python\Python36\lib\site-packages\django\contrib\sessions\backends\base.py", line 202, in _get_session
+    return self._session_cache
+AttributeError: 'SessionStore' object has no attribute '_session_cache'
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "C:\Users\Administrator\AppData\Local\Programs\Python\Python36\lib\site-packages\django\db\backends\utils.py", line 65, in execute
+    return self.cursor.execute(sql, params)
+  File "C:\Users\Administrator\AppData\Local\Programs\Python\Python36\lib\site-packages\django\db\backends\sqlite3\base.py", line 328, in execute
+    return Database.Cursor.execute(self, query, params)
+sqlite3.OperationalError: no such table: django_session
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "C:\Users\Administrator\AppData\Local\Programs\Python\Python36\lib\site-packages\django\core\handlers\exception.py", line 41, in inner
+    response = get_response(request)
+  File "C:\Users\Administrator\AppData\Local\Programs\Python\Python36\lib\site-packages\django\core\handlers\base.py", line 249, in _legacy_get_response
+    response = self._get_response(request)
+  File "C:\Users\Administrator\AppData\Local\Programs\Python\Python36\lib\site-packages\django\core\handlers\base.py", line 187, in _get_response
+    response = self.process_exception_by_middleware(e, request)
+  File "C:\Users\Administrator\AppData\Local\Programs\Python\Python36\lib\site-packages\django\core\handlers\base.py", line 185, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "C:\Users\Administrator\AppData\Local\Programs\Python\Python36\lib\site-packages\django\contrib\admin\sites.py", line 242, in wrapper
+    return self.admin_view(view, cacheable)(*args, **kwargs)
+  File "C:\Users\Administrator\AppData\Local\Programs\Python\Python36\lib\site-packages\django\utils\decorators.py", line 149, in _wrapped_view
+    response = view_func(request, *args, **kwargs)
+  File "C:\Users\Administrator\AppData\Local\Programs\Python\Python36\lib\site-packages\django\views\decorators\cache.py", line 57, in _wrapped_view_func
+    response = view_func(request, *args, **kwargs)
+  File "C:\Users\Administrator\AppData\Local\Programs\Python\Python36\lib\site-packages\django\contrib\admin\sites.py", line 213, in inner
+    if not self.has_permission(request):
+  File "C:\Users\Administrator\AppData\Local\Programs\Python\Python36\lib\site-packages\django\contrib\admin\sites.py", line 187, in has_permission
+    return request.user.is_active and request.user.is_staff
+  File "C:\Users\Administrator\AppData\Local\Programs\Python\Python36\lib\site-packages\django\utils\functional.py", line 238, in inner
+    self._setup()
+  File "C:\Users\Administrator\AppData\Local\Programs\Python\Python36\lib\site-packages\django\utils\functional.py", line 385, in _setup
+    self._wrapped = self._setupfunc()
+  File "C:\Users\Administrator\AppData\Local\Programs\Python\Python36\lib\site-packages\django\contrib\auth\middleware.py", line 24, in <lambda>
+    request.user = SimpleLazyObject(lambda: get_user(request))
+  File "C:\Users\Administrator\AppData\Local\Programs\Python\Python36\lib\site-packages\django\contrib\auth\middleware.py", line 12, in get_user
+    request._cached_user = auth.get_user(request)
+  File "C:\Users\Administrator\AppData\Local\Programs\Python\Python36\lib\site-packages\django\contrib\auth\__init__.py", line 206, in get_user
+    user_id = _get_user_session_key(request)
+  File "C:\Users\Administrator\AppData\Local\Programs\Python\Python36\lib\site-packages\django\contrib\auth\__init__.py", line 61, in _get_user_session_key
+    return get_user_model()._meta.pk.to_python(request.session[SESSION_KEY])
+  File "C:\Users\Administrator\AppData\Local\Programs\Python\Python36\lib\site-packages\django\contrib\sessions\backends\base.py", line 57, in __getitem__
+    return self._session[key]
+  File "C:\Users\Administrator\AppData\Local\Programs\Python\Python36\lib\site-packages\django\contrib\sessions\backends\base.py", line 207, in _get_session
+    self._session_cache = self.load()
+  File "C:\Users\Administrator\AppData\Local\Programs\Python\Python36\lib\site-packages\django\contrib\sessions\backends\db.py", line 35, in load
+    expire_date__gt=timezone.now()
+  File "C:\Users\Administrator\AppData\Local\Programs\Python\Python36\lib\site-packages\django\db\models\manager.py", line 85, in manager_method
+    return getattr(self.get_queryset(), name)(*args, **kwargs)
+  File "C:\Users\Administrator\AppData\Local\Programs\Python\Python36\lib\site-packages\django\db\models\query.py", line 374, in get
+    num = len(clone)
+  File "C:\Users\Administrator\AppData\Local\Programs\Python\Python36\lib\site-packages\django\db\models\query.py", line 232, in __len__
+    self._fetch_all()
+  File "C:\Users\Administrator\AppData\Local\Programs\Python\Python36\lib\site-packages\django\db\models\query.py", line 1103, in _fetch_all
+    self._result_cache = list(self._iterable_class(self))
+  File "C:\Users\Administrator\AppData\Local\Programs\Python\Python36\lib\site-packages\django\db\models\query.py", line 53, in __iter__
+    results = compiler.execute_sql(chunked_fetch=self.chunked_fetch)
+  File "C:\Users\Administrator\AppData\Local\Programs\Python\Python36\lib\site-packages\django\db\models\sql\compiler.py", line 886, in execute_sql
+    raise original_exception
+  File "C:\Users\Administrator\AppData\Local\Programs\Python\Python36\lib\site-packages\django\db\models\sql\compiler.py", line 876, in execute_sql
+    cursor.execute(sql, params)
+  File "C:\Users\Administrator\AppData\Local\Programs\Python\Python36\lib\site-packages\django\db\backends\utils.py", line 80, in execute
+    return super(CursorDebugWrapper, self).execute(sql, params)
+  File "C:\Users\Administrator\AppData\Local\Programs\Python\Python36\lib\site-packages\django\db\backends\utils.py", line 65, in execute
+    return self.cursor.execute(sql, params)
+  File "C:\Users\Administrator\AppData\Local\Programs\Python\Python36\lib\site-packages\django\db\utils.py", line 94, in __exit__
+    six.reraise(dj_exc_type, dj_exc_value, traceback)
+  File "C:\Users\Administrator\AppData\Local\Programs\Python\Python36\lib\site-packages\django\utils\six.py", line 685, in reraise
+    raise value.with_traceback(tb)
+  File "C:\Users\Administrator\AppData\Local\Programs\Python\Python36\lib\site-packages\django\db\backends\utils.py", line 65, in execute
+    return self.cursor.execute(sql, params)
+  File "C:\Users\Administrator\AppData\Local\Programs\Python\Python36\lib\site-packages\django\db\backends\sqlite3\base.py", line 328, in execute
+    return Database.Cursor.execute(self, query, params)
+django.db.utils.OperationalError: no such table: django_session
+[2018-08-06 12:00:49,128] [django.server:124] [ERROR] "GET /admin/ HTTP/1.1" 500 203464
+[2018-08-06 12:03:20,791] [django.request:152] [WARNING] Not Found: /
+[2018-08-06 12:03:20,795] [django.server:124] [WARNING] "GET / HTTP/1.1" 404 2031
+[2018-08-06 12:03:25,504] [django.server:124] [INFO] "GET /admin/ HTTP/1.1" 302 0
+[2018-08-06 12:03:25,774] [django.server:124] [INFO] "GET /admin/login/?next=/admin/ HTTP/1.1" 200 1655
+[2018-08-06 12:03:26,771] [django.server:124] [INFO] "GET /static/admin/css/base.css HTTP/1.1" 200 16066
+[2018-08-06 12:03:26,791] [django.server:124] [INFO] "GET /static/admin/css/login.css HTTP/1.1" 200 1203
+[2018-08-06 12:03:26,830] [django.server:124] [INFO] "GET /static/admin/css/fonts.css HTTP/1.1" 200 423
+[2018-08-06 12:03:26,876] [django.server:124] [INFO] "GET /static/admin/fonts/Roboto-Regular-webfont.woff HTTP/1.1" 200 80304
+[2018-08-06 12:03:26,947] [django.server:124] [INFO] "GET /static/admin/fonts/Roboto-Light-webfont.woff HTTP/1.1" 200 81348
+[2018-08-06 12:04:33,709] [django.server:124] [INFO] "GET /admin/login/?next=/admin/ HTTP/1.1" 200 1655
+[2018-08-06 12:04:52,159] [django.server:124] [INFO] "POST /admin/login/?next=/admin/ HTTP/1.1" 302 0
+[2018-08-06 12:04:52,311] [django.server:124] [INFO] "GET /admin/ HTTP/1.1" 200 27438
+[2018-08-06 12:04:52,353] [django.server:124] [INFO] "GET /static/admin/css/dashboard.css HTTP/1.1" 200 412
+[2018-08-06 12:04:52,382] [django.server:124] [INFO] "GET /static/admin/img/icon-changelink.svg HTTP/1.1" 200 380
+[2018-08-06 12:04:52,383] [django.server:124] [INFO] "GET /static/admin/img/icon-addlink.svg HTTP/1.1" 200 331
+[2018-08-06 12:04:52,387] [django.server:124] [INFO] "GET /static/admin/fonts/Roboto-Bold-webfont.woff HTTP/1.1" 200 82564
+[2018-08-06 12:05:08,410] [django.server:124] [INFO] "GET /admin/electronicboard/lesson/ HTTP/1.1" 200 3088
+[2018-08-06 12:05:08,515] [django.server:124] [INFO] "GET /static/admin/css/changelists.css HTTP/1.1" 200 6170
+[2018-08-06 12:05:08,566] [django.server:124] [INFO] "GET /admin/jsi18n/ HTTP/1.1" 200 7682
+[2018-08-06 12:05:08,582] [django.server:124] [INFO] "GET /static/admin/js/core.js HTTP/1.1" 200 7976
+[2018-08-06 12:05:08,593] [django.server:124] [INFO] "GET /static/admin/js/jquery.init.js HTTP/1.1" 200 363
+[2018-08-06 12:05:08,603] [django.server:124] [INFO] "GET /static/admin/js/actions.js HTTP/1.1" 200 6501
+[2018-08-06 12:05:08,603] [django.server:124] [INFO] "GET /static/admin/js/urlify.js HTTP/1.1" 200 8186
+[2018-08-06 12:05:08,604] [django.server:124] [INFO] "GET /static/admin/js/prepopulate.js HTTP/1.1" 200 1538
+[2018-08-06 12:05:08,615] [django.server:124] [INFO] "GET /static/admin/js/admin/RelatedObjectLookups.js HTTP/1.1" 200 6591
+[2018-08-06 12:05:08,652] [django.server:124] [INFO] "GET /static/admin/js/vendor/jquery/jquery.js HTTP/1.1" 200 258648
+[2018-08-06 12:05:08,673] [django.server:124] [INFO] "GET /static/admin/js/vendor/xregexp/xregexp.js HTTP/1.1" 200 128820
+[2018-08-06 12:05:08,772] [django.server:124] [INFO] "GET /static/admin/img/tooltag-add.svg HTTP/1.1" 200 331
+[2018-08-06 12:05:10,258] [django.server:124] [INFO] "GET /admin/ HTTP/1.1" 200 27438
+[2018-08-06 12:05:50,603] [django.server:124] [INFO] "GET /admin/electronicboard/lessonattendancestudent/ HTTP/1.1" 200 3152
+[2018-08-06 12:05:51,200] [django.server:124] [INFO] "GET /admin/jsi18n/ HTTP/1.1" 200 7682
+[2018-08-06 12:05:53,153] [django.server:124] [INFO] "GET /admin/electronicboard/lessonattendancestudent/add/ HTTP/1.1" 200 6577
+[2018-08-06 12:05:53,208] [django.server:124] [INFO] "GET /static/admin/css/forms.css HTTP/1.1" 200 8173
+[2018-08-06 12:05:53,222] [django.server:124] [INFO] "GET /static/admin/js/calendar.js HTTP/1.1" 200 7790
+[2018-08-06 12:05:53,223] [django.server:124] [INFO] "GET /admin/jsi18n/ HTTP/1.1" 200 7682
+[2018-08-06 12:05:53,225] [django.server:124] [INFO] "GET /static/admin/js/admin/DateTimeShortcuts.js HTTP/1.1" 200 20529
+[2018-08-06 12:05:53,226] [django.server:124] [INFO] "GET /static/admin/js/change_form.js HTTP/1.1" 200 712
+[2018-08-06 12:05:53,232] [django.server:124] [INFO] "GET /static/admin/js/prepopulate_init.js HTTP/1.1" 200 495
+[2018-08-06 12:05:53,285] [django.server:124] [INFO] "GET /static/admin/css/widgets.css HTTP/1.1" 200 10340
+[2018-08-06 12:05:53,413] [django.server:124] [INFO] "GET /static/admin/img/icon-calendar.svg HTTP/1.1" 200 1086
+[2018-08-06 12:05:53,424] [django.server:124] [INFO] "GET /static/admin/img/icon-clock.svg HTTP/1.1" 200 677
+[2018-08-06 12:05:57,225] [django.server:124] [INFO] "GET /admin/electronicboard/lessonattendancehistory/add/?_to_field=id&_popup=1 HTTP/1.1" 200 10682
+[2018-08-06 12:05:57,295] [django.server:124] [INFO] "GET /admin/jsi18n/ HTTP/1.1" 200 7682
+[2018-08-06 12:05:57,311] [django.server:124] [INFO] "GET /static/admin/img/icon-deletelink.svg HTTP/1.1" 200 392
+[2018-08-06 12:06:03,599] [django.server:124] [INFO] "GET /admin/electronicboard/lessonattendancestudent/ HTTP/1.1" 200 3152
+[2018-08-06 12:06:04,749] [django.server:124] [INFO] "GET /admin/ HTTP/1.1" 200 27438
+[2018-08-06 12:06:08,070] [django.server:124] [INFO] "GET /admin/electronicboard/lessonattendancehistory/ HTTP/1.1" 200 3152
+[2018-08-06 12:06:08,126] [django.server:124] [INFO] "GET /admin/jsi18n/ HTTP/1.1" 200 7682
+[2018-08-06 12:06:09,415] [django.server:124] [INFO] "GET /admin/electronicboard/lessonattendancehistory/add/ HTTP/1.1" 200 11692
+[2018-08-06 12:06:09,485] [django.server:124] [INFO] "GET /admin/jsi18n/ HTTP/1.1" 200 7682
+[2018-08-06 12:06:14,970] [django.server:124] [INFO] "GET /admin/electronicboard/lesson/add/?_to_field=id&_popup=1 HTTP/1.1" 200 9193
+[2018-08-06 12:06:15,045] [django.server:124] [INFO] "GET /admin/jsi18n/ HTTP/1.1" 200 7682
+[2018-08-06 12:06:19,295] [django.server:124] [INFO] "GET /admin/school/class/add/?_to_field=id&_popup=1 HTTP/1.1" 200 26997
+[2018-08-06 12:06:19,405] [django.server:124] [INFO] "GET /admin/jsi18n/ HTTP/1.1" 200 7682
+[2018-08-06 12:06:19,465] [django.server:124] [INFO] "GET /static/admin/js/inlines.js HTTP/1.1" 200 13665
+[2018-08-06 12:06:19,507] [django.server:124] [INFO] "GET /static/admin/img/icon-unknown.svg HTTP/1.1" 200 655
+[2018-08-06 12:06:22,046] [django.server:124] [INFO] "GET /admin/user/teacher/add/?_to_field=userprofile_ptr&_popup=1 HTTP/1.1" 200 11200
+[2018-08-06 12:06:22,116] [django.server:124] [INFO] "GET /admin/jsi18n/ HTTP/1.1" 200 7682
+[2018-08-06 12:06:29,078] [django.server:124] [INFO] "GET /admin/electronicboard/lesson/add/?_to_field=id&_popup=1 HTTP/1.1" 200 9193
+[2018-08-06 12:06:29,155] [django.server:124] [INFO] "GET /admin/jsi18n/ HTTP/1.1" 200 7682
+[2018-08-06 12:06:33,082] [django.server:124] [INFO] "GET /admin/school/class/add/?_to_field=id&_popup=1 HTTP/1.1" 200 26997
+[2018-08-06 12:06:33,159] [django.server:124] [INFO] "GET /admin/jsi18n/ HTTP/1.1" 200 7682
+[2018-08-06 12:06:50,617] [django.server:124] [INFO] "GET /admin/school/school/add/?_to_field=id&_popup=1 HTTP/1.1" 200 9269
+[2018-08-06 12:06:50,679] [django.server:124] [INFO] "GET /admin/jsi18n/ HTTP/1.1" 200 7682
+[2018-08-06 12:07:10,209] [django.server:124] [INFO] "POST /admin/school/school/add/?_to_field=id&_popup=1 HTTP/1.1" 200 387
+[2018-08-06 12:07:10,249] [django.server:124] [INFO] "GET /static/admin/js/popup_response.js HTTP/1.1" 200 569
+[2018-08-06 12:07:14,971] [django.server:124] [INFO] "POST /admin/school/class/add/?_to_field=id&_popup=1 HTTP/1.1" 200 27253
+[2018-08-06 12:07:15,037] [django.server:124] [INFO] "GET /admin/jsi18n/ HTTP/1.1" 200 7682
+[2018-08-06 12:07:25,983] [django.server:124] [INFO] "POST /admin/school/class/add/?_to_field=id&_popup=1 HTTP/1.1" 200 418
+[2018-08-06 12:07:28,533] [django.server:124] [INFO] "GET /admin/user/teacher/add/?_to_field=userprofile_ptr&_popup=1 HTTP/1.1" 200 11243
+[2018-08-06 12:07:28,597] [django.server:124] [INFO] "GET /admin/jsi18n/ HTTP/1.1" 200 7682
+[2018-08-06 12:07:41,474] [django.server:124] [INFO] "GET /admin/school/school/add/?_to_field=id&_popup=1 HTTP/1.1" 200 9269
+[2018-08-06 12:07:41,544] [django.server:124] [INFO] "GET /admin/jsi18n/ HTTP/1.1" 200 7682
+[2018-08-06 12:07:46,355] [django.request:135] [ERROR] Internal Server Error: /admin/user/teacher/add/
+Traceback (most recent call last):
+  File "C:\Users\Administrator\AppData\Local\Programs\Python\Python36\lib\site-packages\django\core\handlers\exception.py", line 41, in inner
+    response = get_response(request)
+  File "C:\Users\Administrator\AppData\Local\Programs\Python\Python36\lib\site-packages\django\core\handlers\base.py", line 249, in _legacy_get_response
+    response = self._get_response(request)
+  File "C:\Users\Administrator\AppData\Local\Programs\Python\Python36\lib\site-packages\django\core\handlers\base.py", line 187, in _get_response
+    response = self.process_exception_by_middleware(e, request)
+  File "C:\Users\Administrator\AppData\Local\Programs\Python\Python36\lib\site-packages\django\core\handlers\base.py", line 185, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "C:\Users\Administrator\AppData\Local\Programs\Python\Python36\lib\site-packages\django\contrib\admin\options.py", line 551, in wrapper
+    return self.admin_site.admin_view(view)(*args, **kwargs)
+  File "C:\Users\Administrator\AppData\Local\Programs\Python\Python36\lib\site-packages\django\utils\decorators.py", line 149, in _wrapped_view
+    response = view_func(request, *args, **kwargs)
+  File "C:\Users\Administrator\AppData\Local\Programs\Python\Python36\lib\site-packages\django\views\decorators\cache.py", line 57, in _wrapped_view_func
+    response = view_func(request, *args, **kwargs)
+  File "C:\Users\Administrator\AppData\Local\Programs\Python\Python36\lib\site-packages\django\contrib\admin\sites.py", line 224, in inner
+    return view(request, *args, **kwargs)
+  File "C:\Users\Administrator\AppData\Local\Programs\Python\Python36\lib\site-packages\django\contrib\admin\options.py", line 1508, in add_view
+    return self.changeform_view(request, None, form_url, extra_context)
+  File "C:\Users\Administrator\AppData\Local\Programs\Python\Python36\lib\site-packages\django\utils\decorators.py", line 67, in _wrapper
+    return bound_func(*args, **kwargs)
+  File "C:\Users\Administrator\AppData\Local\Programs\Python\Python36\lib\site-packages\django\utils\decorators.py", line 149, in _wrapped_view
+    response = view_func(request, *args, **kwargs)
+  File "C:\Users\Administrator\AppData\Local\Programs\Python\Python36\lib\site-packages\django\utils\decorators.py", line 63, in bound_func
+    return func.__get__(self, type(self))(*args2, **kwargs2)
+  File "C:\Users\Administrator\AppData\Local\Programs\Python\Python36\lib\site-packages\django\contrib\admin\options.py", line 1408, in changeform_view
+    return self._changeform_view(request, object_id, form_url, extra_context)
+  File "C:\Users\Administrator\AppData\Local\Programs\Python\Python36\lib\site-packages\django\contrib\admin\options.py", line 1448, in _changeform_view
+    self.save_model(request, new_object, form, not add)
+  File "C:\Users\Administrator\AppData\Local\Programs\Python\Python36\lib\site-packages\django\contrib\admin\options.py", line 979, in save_model
+    obj.save()
+  File "C:\Users\Administrator\PycharmProjects\sts_2\sts\user\models.py", line 309, in save
+    super(Teacher, self).save(*args, **kwargs)
+  File "C:\Users\Administrator\PycharmProjects\sts_2\sts\user\models.py", line 197, in save
+    refresh_im_user_info(self.pk)
+  File "C:\Users\Administrator\AppData\Local\Programs\Python\Python36\lib\site-packages\celery\local.py", line 188, in __call__
+    return self._get_current_object()(*a, **kw)
+  File "C:\Users\Administrator\AppData\Local\Programs\Python\Python36\lib\site-packages\celery\app\task.py", line 428, in __call__
+    return self.run(*args, **kwargs)
+  File "C:\Users\Administrator\PycharmProjects\sts_2\sts\user\tasks.py", line 84, in refresh_im_user_info
+    user = UserProfile.objects.get(pk=user_pk)
+  File "C:\Users\Administrator\AppData\Local\Programs\Python\Python36\lib\site-packages\django\db\models\manager.py", line 85, in manager_method
+    return getattr(self.get_queryset(), name)(*args, **kwargs)
+  File "C:\Users\Administrator\AppData\Local\Programs\Python\Python36\lib\site-packages\django\db\models\query.py", line 380, in get
+    self.model._meta.object_name
+user.models.DoesNotExist: UserProfile matching query does not exist.
+[2018-08-06 12:07:46,543] [django.server:124] [ERROR] "POST /admin/user/teacher/add/?_to_field=userprofile_ptr&_popup=1 HTTP/1.1" 500 160143
+[2018-08-06 12:08:01,089] [django.server:124] [INFO] "GET /admin/user/teacher/add/?_to_field=userprofile_ptr&_popup=1 HTTP/1.1" 200 11243
+[2018-08-06 12:08:01,150] [django.server:124] [INFO] "GET /admin/jsi18n/ HTTP/1.1" 200 7682
+[2018-08-06 12:08:27,395] [django.server:124] [INFO] "POST /admin/user/teacher/add/?_to_field=userprofile_ptr&_popup=1 HTTP/1.1" 200 399
+[2018-08-06 12:08:59,491] [django.server:124] [INFO] "POST /admin/electronicboard/lesson/add/?_to_field=id&_popup=1 HTTP/1.1" 200 398
+[2018-08-06 12:09:05,793] [django.server:124] [INFO] "GET /admin/school/class/add/?_to_field=id&_popup=1 HTTP/1.1" 200 27236
+[2018-08-06 12:09:05,863] [django.server:124] [INFO] "GET /admin/jsi18n/ HTTP/1.1" 200 7682
+[2018-08-06 12:09:27,846] [django.server:124] [INFO] "GET /admin/electronicboard/lesson/add/?_to_field=id&_popup=1 HTTP/1.1" 200 9301
+[2018-08-06 12:09:27,927] [django.server:124] [INFO] "GET /admin/jsi18n/ HTTP/1.1" 200 7682
+[2018-08-06 12:09:52,146] [django.server:124] [INFO] "GET /admin/school/class/add/?_to_field=id&_popup=1 HTTP/1.1" 200 27236
+[2018-08-06 12:09:52,207] [django.server:124] [INFO] "GET /admin/jsi18n/ HTTP/1.1" 200 7682
+[2018-08-06 12:10:13,104] [django.server:124] [INFO] "POST /admin/school/class/add/?_to_field=id&_popup=1 HTTP/1.1" 200 22707
+[2018-08-06 12:10:13,192] [django.server:124] [INFO] "GET /admin/jsi18n/ HTTP/1.1" 200 7682
+[2018-08-06 12:10:19,594] [django.server:124] [INFO] "POST /admin/school/class/add/?_to_field=id&_popup=1 HTTP/1.1" 200 418
+[2018-08-06 12:10:26,613] [django.server:124] [INFO] "GET /admin/user/teacher/add/?_to_field=userprofile_ptr&_popup=1 HTTP/1.1" 200 11243
+[2018-08-06 12:10:26,687] [django.server:124] [INFO] "GET /admin/jsi18n/ HTTP/1.1" 200 7682
+[2018-08-06 12:10:42,516] [django.server:124] [INFO] "POST /admin/user/teacher/add/?_to_field=userprofile_ptr&_popup=1 HTTP/1.1" 200 11472
+[2018-08-06 12:10:42,579] [django.server:124] [INFO] "GET /admin/jsi18n/ HTTP/1.1" 200 7682
+[2018-08-06 12:10:51,441] [django.server:124] [INFO] "POST /admin/user/teacher/add/?_to_field=userprofile_ptr&_popup=1 HTTP/1.1" 200 393
+[2018-08-06 12:11:08,256] [django.server:124] [INFO] "GET /static/admin/img/calendar-icons.svg HTTP/1.1" 200 1094
+[2018-08-06 12:11:18,136] [django.server:124] [INFO] "POST /admin/electronicboard/lessonattendancehistory/add/ HTTP/1.1" 302 0
+[2018-08-06 12:11:18,225] [django.server:124] [INFO] "GET /admin/electronicboard/lessonattendancehistory/ HTTP/1.1" 200 4573
+[2018-08-06 12:11:18,280] [django.server:124] [INFO] "GET /admin/jsi18n/ HTTP/1.1" 200 7682
+[2018-08-06 12:11:18,330] [django.server:124] [INFO] "GET /static/admin/img/icon-yes.svg HTTP/1.1" 200 436
+[2018-08-06 12:11:23,799] [django.server:124] [INFO] "GET /admin/electronicboard/ HTTP/1.1" 200 7021
+[2018-08-06 12:11:26,227] [django.server:124] [INFO] "GET /admin/electronicboard/lessonattendancestudent/ HTTP/1.1" 200 3152
+[2018-08-06 12:11:26,273] [django.server:124] [INFO] "GET /admin/jsi18n/ HTTP/1.1" 200 7682
+[2018-08-06 12:11:27,647] [django.server:124] [INFO] "GET /admin/electronicboard/lessonattendancestudent/add/ HTTP/1.1" 200 6638
+[2018-08-06 12:11:27,699] [django.server:124] [INFO] "GET /admin/jsi18n/ HTTP/1.1" 200 7682
+[2018-08-06 12:11:32,474] [django.server:124] [INFO] "GET /admin/electronicboard/lessonattendancehistory/1/change/?_to_field=id&_popup=1 HTTP/1.1" 200 10948
+[2018-08-06 12:11:32,559] [django.server:124] [INFO] "GET /admin/jsi18n/ HTTP/1.1" 200 7682
+[2018-08-06 12:12:40,485] [django.server:124] [INFO] "GET /admin/user/student/add/?_to_field=id&_popup=1 HTTP/1.1" 200 6836
+[2018-08-06 12:12:40,544] [django.server:124] [INFO] "GET /admin/jsi18n/ HTTP/1.1" 200 7682
+[2018-08-06 12:12:56,460] [django.server:124] [INFO] "GET /admin/device/device/add/?_to_field=id&_popup=1 HTTP/1.1" 200 9059
+[2018-08-06 12:12:56,523] [django.server:124] [INFO] "GET /static/admin/img/icon-no.svg HTTP/1.1" 200 560
+[2018-08-06 12:12:56,532] [django.server:124] [INFO] "GET /admin/jsi18n/ HTTP/1.1" 200 7682
+[2018-08-06 12:13:17,551] [django.server:124] [INFO] "POST /admin/device/device/add/?_to_field=id&_popup=1 HTTP/1.1" 200 404
+[2018-08-06 12:13:20,524] [django.server:124] [INFO] "POST /admin/user/student/add/?_to_field=id&_popup=1 HTTP/1.1" 200 375
+[2018-08-06 12:13:29,705] [django.server:124] [INFO] "POST /admin/electronicboard/lessonattendancestudent/add/ HTTP/1.1" 302 0
+[2018-08-06 12:13:29,794] [django.server:124] [INFO] "GET /admin/electronicboard/lessonattendancestudent/ HTTP/1.1" 200 4573
+[2018-08-06 12:13:29,848] [django.server:124] [INFO] "GET /admin/jsi18n/ HTTP/1.1" 200 7682
+[2018-08-06 12:13:32,107] [django.server:124] [INFO] "GET /admin/electronicboard/ HTTP/1.1" 200 7021
+[2018-08-06 12:13:34,019] [django.server:124] [INFO] "GET /admin/electronicboard/studentlessonrel/ HTTP/1.1" 200 3168
+[2018-08-06 12:13:34,065] [django.server:124] [INFO] "GET /admin/jsi18n/ HTTP/1.1" 200 7682
+[2018-08-06 12:13:35,348] [django.server:124] [INFO] "GET /admin/electronicboard/studentlessonrel/add/ HTTP/1.1" 200 5774
+[2018-08-06 12:13:35,400] [django.server:124] [INFO] "GET /admin/jsi18n/ HTTP/1.1" 200 7682
+[2018-08-06 12:13:40,766] [django.server:124] [INFO] "POST /admin/electronicboard/studentlessonrel/add/ HTTP/1.1" 302 0
+[2018-08-06 12:13:40,864] [django.server:124] [INFO] "GET /admin/electronicboard/studentlessonrel/ HTTP/1.1" 200 4579
+[2018-08-06 12:13:40,911] [django.server:124] [INFO] "GET /admin/jsi18n/ HTTP/1.1" 200 7682
+[2018-08-06 12:13:44,066] [django.server:124] [INFO] "GET /admin/electronicboard/ HTTP/1.1" 200 7021
+[2018-08-06 12:13:47,765] [django.server:124] [INFO] "GET /admin/electronicboard/lesson/ HTTP/1.1" 200 5684
+[2018-08-06 12:13:47,815] [django.server:124] [INFO] "GET /admin/jsi18n/ HTTP/1.1" 200 7682
+[2018-08-06 12:14:01,568] [django.server:124] [INFO] "GET /admin/electronicboard/lesson/1/change/ HTTP/1.1" 200 10681
+[2018-08-06 12:14:01,617] [django.server:124] [INFO] "GET /admin/jsi18n/ HTTP/1.1" 200 7682
+[2018-08-06 12:14:21,253] [django.server:124] [INFO] "GET /admin/electronicboard/ HTTP/1.1" 200 7021
+[2018-08-06 12:14:29,017] [django.server:124] [INFO] "GET /admin/electronicboard/teacherextrainfo/ HTTP/1.1" 200 3138
+[2018-08-06 12:14:29,070] [django.server:124] [INFO] "GET /admin/jsi18n/ HTTP/1.1" 200 7682
+[2018-08-06 12:14:30,624] [django.server:124] [INFO] "GET /admin/electronicboard/ HTTP/1.1" 200 7021
+[2018-08-06 12:14:36,896] [django.server:124] [INFO] "GET /admin/electronicboard/lesson/ HTTP/1.1" 200 5684
+[2018-08-06 12:14:36,955] [django.server:124] [INFO] "GET /admin/jsi18n/ HTTP/1.1" 200 7682
+[2018-08-06 12:14:41,024] [django.server:124] [INFO] "GET /admin/electronicboard/lesson/add/ HTTP/1.1" 200 10387
+[2018-08-06 12:14:41,728] [django.server:124] [INFO] "GET /admin/jsi18n/ HTTP/1.1" 200 7682
+[2018-08-06 13:49:10,196] [django.server:124] [INFO] "GET /admin/ HTTP/1.1" 200 30601
+[2018-08-06 13:49:14,637] [django.server:124] [INFO] "GET /admin/electronicboard/honorimageitem/ HTTP/1.1" 200 3134
+[2018-08-06 13:49:15,351] [django.server:124] [INFO] "GET /admin/jsi18n/ HTTP/1.1" 200 7682
+[2018-08-06 13:49:18,321] [django.server:124] [INFO] "GET /admin/electronicboard/honorimageitem/add/ HTTP/1.1" 200 6706
+[2018-08-06 13:49:18,387] [django.server:124] [INFO] "GET /admin/jsi18n/ HTTP/1.1" 200 7682
+[2018-08-06 13:49:28,551] [django.server:124] [INFO] "GET /admin/electronicboard/classhonor/add/?_to_field=id&_popup=1 HTTP/1.1" 200 8232
+[2018-08-06 13:49:28,617] [django.server:124] [INFO] "GET /admin/jsi18n/ HTTP/1.1" 200 7682
+[2018-08-06 13:50:39,326] [django.server:124] [INFO] "POST /admin/electronicboard/classhonor/add/?_to_field=id&_popup=1 HTTP/1.1" 200 387
+[2018-08-06 13:50:46,904] [django.server:124] [INFO] "POST /admin/electronicboard/honorimageitem/add/ HTTP/1.1" 302 0
+[2018-08-06 13:50:46,967] [django.server:124] [INFO] "GET /admin/electronicboard/honorimageitem/ HTTP/1.1" 200 4519
+[2018-08-06 13:50:47,023] [django.server:124] [INFO] "GET /admin/jsi18n/ HTTP/1.1" 200 7682
+[2018-08-06 13:50:49,925] [django.server:124] [INFO] "GET /admin/electronicboard/honorimageitem/add/ HTTP/1.1" 200 6749
+[2018-08-06 13:50:49,976] [django.server:124] [INFO] "GET /admin/jsi18n/ HTTP/1.1" 200 7682
+[2018-08-06 13:51:01,499] [django.server:124] [INFO] "POST /admin/electronicboard/honorimageitem/add/ HTTP/1.1" 302 0
+[2018-08-06 13:51:01,571] [django.server:124] [INFO] "GET /admin/electronicboard/honorimageitem/ HTTP/1.1" 200 4772
+[2018-08-06 13:51:01,631] [django.server:124] [INFO] "GET /admin/jsi18n/ HTTP/1.1" 200 7682
+[2018-08-06 13:51:07,651] [django.server:124] [INFO] "GET /admin/electronicboard/ HTTP/1.1" 200 7021
+[2018-08-06 13:51:11,994] [django.server:124] [INFO] "GET /admin/ HTTP/1.1" 200 30647
+[2018-08-06 13:51:14,907] [django.server:124] [INFO] "GET /admin/user/userprofile/ HTTP/1.1" 200 7350
+[2018-08-06 13:51:14,980] [django.server:124] [INFO] "GET /admin/jsi18n/ HTTP/1.1" 200 7682
+[2018-08-06 13:51:14,987] [django.server:124] [INFO] "GET /static/admin/img/search.svg HTTP/1.1" 200 458
+[2018-08-06 13:51:20,313] [django.server:124] [INFO] "GET /admin/user/userprofile/1/change/ HTTP/1.1" 200 33830
+[2018-08-06 13:51:20,916] [django.server:124] [INFO] "GET /admin/jsi18n/ HTTP/1.1" 200 7682
+[2018-08-06 13:51:20,948] [django.server:124] [INFO] "GET /static/admin/js/SelectBox.js HTTP/1.1" 200 5755
+[2018-08-06 13:51:20,948] [django.server:124] [INFO] "GET /static/admin/js/SelectFilter2.js HTTP/1.1" 200 12389
+[2018-08-06 13:51:21,236] [django.server:124] [INFO] "GET /static/admin/img/selector-icons.svg HTTP/1.1" 200 3291
+[2018-08-06 13:51:21,250] [django.server:124] [INFO] "GET /static/admin/img/icon-unknown-alt.svg HTTP/1.1" 200 655
+[2018-08-06 13:51:38,052] [django.server:124] [INFO] "GET /admin/user/userprofile/ HTTP/1.1" 200 7350
+[2018-08-06 13:51:39,313] [django.server:124] [INFO] "GET /admin/user/userprofile/2/change/ HTTP/1.1" 200 33675
+[2018-08-06 13:51:39,371] [django.server:124] [INFO] "GET /admin/jsi18n/ HTTP/1.1" 200 7682
+[2018-08-06 13:51:44,885] [django.server:124] [INFO] "GET /admin/user/userprofile/ HTTP/1.1" 200 7350
+[2018-08-06 13:53:39,371] [django.server:124] [WARNING] "POST /api/electronic_board/login/ HTTP/1.1" 400 94
+[2018-08-06 13:54:56,281] [django.server:124] [INFO] "GET /admin/user/userprofile/1/change/ HTTP/1.1" 200 33830
+[2018-08-06 13:54:56,687] [django.server:124] [INFO] "GET /admin/jsi18n/ HTTP/1.1" 200 7682
+[2018-08-06 13:56:10,291] [django.server:124] [WARNING] "POST /api/electronic_board/login/ HTTP/1.1" 400 125
+[2018-08-06 13:56:34,196] [django.server:124] [WARNING] "POST /api/electronic_board/login/ HTTP/1.1" 400 94
+[2018-08-06 14:00:15,766] [django.server:124] [INFO] "GET /admin/user/ HTTP/1.1" 200 8498
+[2018-08-06 14:00:17,946] [django.server:124] [INFO] "GET /admin/ HTTP/1.1" 200 30647
+[2018-08-06 14:00:22,429] [django.server:124] [INFO] "GET /admin/electronicboard/galleryimageitem/ HTTP/1.1" 200 3138
+[2018-08-06 14:00:22,489] [django.server:124] [INFO] "GET /admin/jsi18n/ HTTP/1.1" 200 7682
+[2018-08-06 14:00:24,072] [django.server:124] [INFO] "GET /admin/electronicboard/galleryimageitem/add/ HTTP/1.1" 200 6730
+[2018-08-06 14:00:24,134] [django.server:124] [INFO] "GET /admin/jsi18n/ HTTP/1.1" 200 7682
+[2018-08-06 14:00:28,629] [django.server:124] [INFO] "POST /admin/electronicboard/galleryimageitem/add/ HTTP/1.1" 200 6934
+[2018-08-06 14:00:28,678] [django.server:124] [INFO] "GET /admin/jsi18n/ HTTP/1.1" 200 7682
+[2018-08-06 14:00:31,458] [django.server:124] [INFO] "GET /admin/electronicboard/classgallery/add/?_to_field=id&_popup=1 HTTP/1.1" 200 7471
+[2018-08-06 14:00:31,523] [django.server:124] [INFO] "GET /admin/jsi18n/ HTTP/1.1" 200 7682
+[2018-08-06 14:00:40,708] [django.server:124] [INFO] "POST /admin/electronicboard/classgallery/add/?_to_field=id&_popup=1 HTTP/1.1" 200 375
+[2018-08-06 14:00:45,085] [django.server:124] [INFO] "POST /admin/electronicboard/galleryimageitem/add/ HTTP/1.1" 302 0
+[2018-08-06 14:00:45,157] [django.server:124] [INFO] "GET /admin/electronicboard/galleryimageitem/ HTTP/1.1" 200 4531
+[2018-08-06 14:00:45,217] [django.server:124] [INFO] "GET /admin/jsi18n/ HTTP/1.1" 200 7682
+[2018-08-06 14:03:45,371] [django.server:124] [INFO] "GET /admin/electronicboard/galleryimageitem/ HTTP/1.1" 200 4654
+[2018-08-06 14:03:45,413] [django.server:124] [INFO] "GET /admin/jsi18n/ HTTP/1.1" 200 7682
+[2018-08-06 14:04:55,418] [django.server:124] [INFO] "GET /admin/electronicboard/galleryimageitem/ HTTP/1.1" 200 4654
+[2018-08-06 14:04:55,474] [django.server:124] [INFO] "GET /admin/jsi18n/ HTTP/1.1" 200 7682
+[2018-08-06 14:04:58,001] [django.server:124] [INFO] "GET /admin/electronicboard/galleryimageitem/ HTTP/1.1" 200 4654
+[2018-08-06 14:04:58,124] [django.server:124] [INFO] "GET /admin/jsi18n/ HTTP/1.1" 200 7682
+[2018-08-06 14:04:59,725] [django.server:124] [INFO] "GET /admin/electronicboard/galleryimageitem/ HTTP/1.1" 200 4654
+[2018-08-06 14:04:59,786] [django.server:124] [INFO] "GET /admin/jsi18n/ HTTP/1.1" 200 7682
+[2018-08-06 14:05:02,429] [django.server:124] [INFO] "GET /admin/electronicboard/galleryimageitem/add/ HTTP/1.1" 200 6767
+[2018-08-06 14:05:02,491] [django.server:124] [INFO] "GET /admin/jsi18n/ HTTP/1.1" 200 7682
+[2018-08-06 14:05:05,748] [django.server:124] [INFO] "GET /admin/electronicboard/classgallery/add/?_to_field=id&_popup=1 HTTP/1.1" 200 7471
+[2018-08-06 14:05:05,819] [django.server:124] [INFO] "GET /admin/jsi18n/ HTTP/1.1" 200 7682
+[2018-08-06 14:05:12,456] [django.server:124] [INFO] "GET /admin/electronicboard/ HTTP/1.1" 200 7021
+[2018-08-06 14:05:17,352] [django.server:124] [INFO] "GET /admin/electronicboard/galleryimageitem/ HTTP/1.1" 200 4654
+[2018-08-06 14:05:17,411] [django.server:124] [INFO] "GET /admin/jsi18n/ HTTP/1.1" 200 7682
+[2018-08-06 14:05:40,446] [django.server:124] [INFO] "GET /admin/electronicboard/galleryimageitem/ HTTP/1.1" 200 4323
+[2018-08-06 14:05:40,514] [django.server:124] [INFO] "GET /admin/jsi18n/ HTTP/1.1" 200 7682
+[2018-08-06 14:05:43,980] [django.server:124] [INFO] "GET /admin/electronicboard/galleryimageitem/1/change/ HTTP/1.1" 200 7177
+[2018-08-06 14:05:44,029] [django.server:124] [INFO] "GET /admin/jsi18n/ HTTP/1.1" 200 7682
+[2018-08-06 14:05:55,400] [django.server:124] [INFO] "GET /admin/electronicboard/galleryimageitem/ HTTP/1.1" 200 4323
+[2018-08-06 14:10:27,482] [django.server:124] [INFO] "GET /admin/electronicboard/ HTTP/1.1" 200 7021
+[2018-08-06 14:14:35,251] [django.server:124] [INFO] "GET /admin/electronicboard/classnotification/ HTTP/1.1" 200 3110
+[2018-08-06 14:14:36,202] [django.server:124] [INFO] "GET /admin/jsi18n/ HTTP/1.1" 200 7682
+[2018-08-06 14:14:37,966] [django.server:124] [INFO] "GET /admin/electronicboard/classnotification/add/ HTTP/1.1" 200 12053
+[2018-08-06 14:14:38,019] [django.server:124] [INFO] "GET /admin/jsi18n/ HTTP/1.1" 200 7682
+[2018-08-06 14:15:38,631] [django.server:124] [INFO] "POST /admin/electronicboard/classnotification/add/ HTTP/1.1" 302 0
+[2018-08-06 14:15:38,698] [django.server:124] [INFO] "GET /admin/electronicboard/classnotification/ HTTP/1.1" 200 6146
+[2018-08-06 14:15:38,756] [django.server:124] [INFO] "GET /admin/jsi18n/ HTTP/1.1" 200 7682
+[2018-08-06 14:15:56,157] [django.server:124] [INFO] "GET /admin/electronicboard/ HTTP/1.1" 200 7021
+[2018-08-06 14:22:00,391] [django.server:124] [INFO] "GET /admin/electronicboard/teacherextrainfo/ HTTP/1.1" 200 3138
+[2018-08-06 14:22:00,802] [django.server:124] [INFO] "GET /admin/jsi18n/ HTTP/1.1" 200 7682
+[2018-08-06 14:22:02,604] [django.server:124] [INFO] "GET /admin/electronicboard/ HTTP/1.1" 200 7021
+[2018-08-06 14:22:08,555] [django.server:124] [INFO] "GET /admin/ HTTP/1.1" 200 30663
+[2018-08-06 14:22:13,138] [django.server:124] [INFO] "GET /admin/user/teacher/ HTTP/1.1" 200 5372
+[2018-08-06 14:22:13,199] [django.server:124] [INFO] "GET /admin/jsi18n/ HTTP/1.1" 200 7682
+[2018-08-06 14:22:16,144] [django.server:124] [INFO] "GET /admin/user/teacher/2/change/ HTTP/1.1" 200 12586
+[2018-08-06 14:22:16,199] [django.server:124] [INFO] "GET /admin/jsi18n/ HTTP/1.1" 200 7682
+[2018-08-06 14:22:21,111] [django.server:124] [INFO] "GET /admin/user/teacher/ HTTP/1.1" 200 5372
+[2018-08-06 14:22:22,834] [django.server:124] [INFO] "GET /admin/ HTTP/1.1" 200 30663
+[2018-08-06 14:22:24,790] [django.server:124] [INFO] "GET /admin/user/userprofile/ HTTP/1.1" 200 7350
+[2018-08-06 14:22:24,846] [django.server:124] [INFO] "GET /admin/jsi18n/ HTTP/1.1" 200 7682
+[2018-08-06 14:22:26,208] [django.server:124] [INFO] "GET /admin/user/userprofile/1/change/ HTTP/1.1" 200 33830
+[2018-08-06 14:22:26,262] [django.server:124] [INFO] "GET /admin/jsi18n/ HTTP/1.1" 200 7682
+[2018-08-06 14:22:27,777] [django.server:124] [INFO] "GET /admin/user/userprofile/ HTTP/1.1" 200 7350
+[2018-08-06 14:22:33,563] [django.server:124] [INFO] "GET /admin/user/userprofile/1/change/ HTTP/1.1" 200 33830
+[2018-08-06 14:22:33,618] [django.server:124] [INFO] "GET /admin/jsi18n/ HTTP/1.1" 200 7682
+[2018-08-06 14:23:08,927] [django.server:124] [INFO] "GET /admin/user/userprofile/ HTTP/1.1" 200 7350
+[2018-08-06 14:23:20,738] [django.server:124] [INFO] "GET /admin/user/userprofile/3/change/ HTTP/1.1" 200 33673
+[2018-08-06 14:23:20,798] [django.server:124] [INFO] "GET /admin/jsi18n/ HTTP/1.1" 200 7682
+[2018-08-06 14:23:30,911] [django.server:124] [INFO] "GET /admin/user/userprofile/ HTTP/1.1" 200 7350
+[2018-08-06 14:23:32,702] [django.server:124] [INFO] "GET /admin/user/userprofile/add/ HTTP/1.1" 200 5139
+[2018-08-06 14:23:32,756] [django.server:124] [INFO] "GET /admin/jsi18n/ HTTP/1.1" 200 7682
+[2018-08-06 14:23:42,972] [django.server:124] [INFO] "GET /admin/user/userprofile/ HTTP/1.1" 200 7350
+[2018-08-06 14:23:44,237] [django.server:124] [INFO] "GET /admin/user/userprofile/1/change/ HTTP/1.1" 200 33830
+[2018-08-06 14:23:44,293] [django.server:124] [INFO] "GET /admin/jsi18n/ HTTP/1.1" 200 7682
+[2018-08-06 14:23:50,475] [django.server:124] [INFO] "GET /admin/user/userprofile/ HTTP/1.1" 200 7350
+[2018-08-06 14:23:52,110] [django.server:124] [INFO] "GET /admin/user/userprofile/1/change/ HTTP/1.1" 200 33830
+[2018-08-06 14:23:52,163] [django.server:124] [INFO] "GET /admin/jsi18n/ HTTP/1.1" 200 7682
+[2018-08-06 14:28:55,125] [django.server:124] [WARNING] "POST /api/electronic_board/login/ HTTP/1.1" 400 132
+[2018-08-06 14:29:20,738] [django.server:124] [INFO] "GET /admin/user/ HTTP/1.1" 200 8498
+[2018-08-06 14:29:23,105] [django.server:124] [INFO] "GET /admin/user/userprofile/ HTTP/1.1" 200 7350
+[2018-08-06 14:29:23,773] [django.server:124] [INFO] "GET /admin/jsi18n/ HTTP/1.1" 200 7682
+[2018-08-06 14:29:43,278] [django.server:124] [INFO] "GET /admin/user/userprofile/add/ HTTP/1.1" 200 5139
+[2018-08-06 14:29:43,328] [django.server:124] [INFO] "GET /admin/jsi18n/ HTTP/1.1" 200 7682
+[2018-08-06 14:29:48,905] [django.server:124] [INFO] "GET /admin/user/ HTTP/1.1" 200 8498
+[2018-08-06 14:30:09,208] [django.server:124] [INFO] "GET /admin/user/teacher/ HTTP/1.1" 200 5372
+[2018-08-06 14:30:09,271] [django.server:124] [INFO] "GET /admin/jsi18n/ HTTP/1.1" 200 7682
+[2018-08-06 14:30:11,003] [django.server:124] [INFO] "GET /admin/user/teacher/add/ HTTP/1.1" 200 12181
+[2018-08-06 14:30:11,054] [django.server:124] [INFO] "GET /admin/jsi18n/ HTTP/1.1" 200 7682
+[2018-08-06 14:30:12,353] [django.server:124] [INFO] "GET /admin/user/teacher/ HTTP/1.1" 200 5372
+[2018-08-06 14:30:13,622] [django.server:124] [INFO] "GET /admin/user/teacher/3/change/ HTTP/1.1" 200 12580
+[2018-08-06 14:30:13,670] [django.server:124] [INFO] "GET /admin/jsi18n/ HTTP/1.1" 200 7682
+[2018-08-06 14:30:18,442] [django.server:124] [INFO] "POST /admin/user/teacher/3/change/ HTTP/1.1" 302 0
+[2018-08-06 14:30:18,541] [django.server:124] [INFO] "GET /admin/user/teacher/ HTTP/1.1" 200 5546
+[2018-08-06 14:30:18,596] [django.server:124] [INFO] "GET /admin/jsi18n/ HTTP/1.1" 200 7682
+[2018-08-06 14:30:33,430] [django.server:124] [INFO] "POST /api/electronic_board/login/ HTTP/1.1" 200 129
+[2018-08-06 14:31:29,682] [django.server:124] [WARNING] "POST /api/electronic_board/class_info/ HTTP/1.1" 400 117
+[2018-08-06 14:31:42,226] [django.server:124] [INFO] "GET /admin/user/teacher/3/change/ HTTP/1.1" 200 12580
+[2018-08-06 14:31:42,622] [django.server:124] [INFO] "GET /admin/jsi18n/ HTTP/1.1" 200 7682
+[2018-08-06 14:31:53,277] [django.server:124] [INFO] "GET /admin/user/teacher/ HTTP/1.1" 200 5372
+[2018-08-06 14:31:54,154] [django.server:124] [INFO] "GET /admin/user/teacher/3/change/ HTTP/1.1" 200 12580
+[2018-08-06 14:31:56,850] [django.server:124] [INFO] "GET /admin/user/ HTTP/1.1" 200 8498
+[2018-08-06 14:31:58,662] [django.server:124] [INFO] "GET /admin/user/userprofile/ HTTP/1.1" 200 7350
+[2018-08-06 14:31:58,716] [django.server:124] [INFO] "GET /admin/jsi18n/ HTTP/1.1" 200 7682
+[2018-08-06 14:32:00,932] [django.server:124] [INFO] "GET /admin/user/userprofile/3/change/ HTTP/1.1" 200 33673
+[2018-08-06 14:32:00,988] [django.server:124] [INFO] "GET /admin/jsi18n/ HTTP/1.1" 200 7682
+[2018-08-06 14:32:05,882] [django.server:124] [INFO] "POST /admin/user/userprofile/3/change/ HTTP/1.1" 302 0
+[2018-08-06 14:32:05,995] [django.server:124] [INFO] "GET /admin/user/userprofile/ HTTP/1.1" 200 7528
+[2018-08-06 14:32:06,045] [django.server:124] [INFO] "GET /admin/jsi18n/ HTTP/1.1" 200 7682
+[2018-08-06 14:32:08,488] [django.server:124] [INFO] "GET /admin/user/userprofile/ HTTP/1.1" 200 7350
+[2018-08-06 14:32:08,551] [django.server:124] [INFO] "GET /admin/jsi18n/ HTTP/1.1" 200 7682
+[2018-08-06 14:32:14,664] [django.server:124] [WARNING] "POST /api/electronic_board/class_info/ HTTP/1.1" 400 117
+[2018-08-06 14:32:37,110] [django.server:124] [INFO] "POST /api/electronic_board/login/ HTTP/1.1" 200 129
+[2018-08-06 14:32:53,548] [django.server:124] [INFO] "POST /api/electronic_board/login/ HTTP/1.1" 200 129
+[2018-08-06 14:33:12,321] [django.server:124] [WARNING] "POST /api/electronic_board/class_info/ HTTP/1.1" 400 91
+[2018-08-06 14:33:41,613] [django.server:124] [INFO] "POST /api/electronic_board/login/ HTTP/1.1" 200 129
+[2018-08-06 14:33:44,536] [django.server:124] [INFO] "POST /api/electronic_board/login/ HTTP/1.1" 200 129
+[2018-08-06 14:34:09,930] [django.server:124] [WARNING] "POST /api/electronic_board/class_info/ HTTP/1.1" 400 117
+[2018-08-06 14:34:13,973] [django.server:124] [WARNING] "GET /api/electronic_board/class_info/ HTTP/1.1" 400 117
+[2018-08-06 14:34:25,652] [django.server:124] [WARNING] "GET /api/electronic_board/class_info/ HTTP/1.1" 400 117
+[2018-08-06 14:34:39,165] [django.server:124] [WARNING] "GET /api/electronic_board/class_course_table/ HTTP/1.1" 400 117
+[2018-08-06 14:35:01,105] [django.server:124] [INFO] "GET /admin/user/userprofile/3/change/ HTTP/1.1" 200 33689
+[2018-08-06 14:35:01,603] [django.server:124] [INFO] "GET /admin/jsi18n/ HTTP/1.1" 200 7682
+[2018-08-06 14:35:06,466] [django.server:124] [INFO] "GET /admin/user/userprofile/3/password/ HTTP/1.1" 200 2756
+[2018-08-06 14:35:06,526] [django.server:124] [INFO] "GET /admin/jsi18n/ HTTP/1.1" 200 7682
+[2018-08-06 14:35:17,242] [django.server:124] [INFO] "POST /admin/user/userprofile/3/password/ HTTP/1.1" 302 0
+[2018-08-06 14:35:17,435] [django.server:124] [INFO] "GET /admin/user/userprofile/3/change/ HTTP/1.1" 200 33950
+[2018-08-06 14:35:17,508] [django.server:124] [INFO] "GET /admin/jsi18n/ HTTP/1.1" 200 7682
+[2018-08-06 14:35:22,272] [django.server:124] [INFO] "GET /admin/user/ HTTP/1.1" 200 8498
+[2018-08-06 14:36:17,342] [django.server:124] [INFO] "GET /admin/user/userprofile/ HTTP/1.1" 200 7350
+[2018-08-06 14:36:17,412] [django.server:124] [INFO] "GET /admin/jsi18n/ HTTP/1.1" 200 7682
+[2018-08-06 14:36:42,113] [django.server:124] [INFO] "POST /api/electronic_board/login/ HTTP/1.1" 200 129
+[2018-08-06 14:37:03,053] [django.server:124] [INFO] "POST /api/electronic_board/login/ HTTP/1.1" 200 129
+[2018-08-06 14:37:38,891] [django.server:124] [WARNING] "GET /api/electronic_board/class_info/ HTTP/1.1" 400 117
+[2018-08-06 14:41:52,108] [django.server:124] [INFO] "GET /admin/user/userprofile/3/change/ HTTP/1.1" 200 33837
+[2018-08-06 14:41:52,925] [django.server:124] [INFO] "GET /admin/jsi18n/ HTTP/1.1" 200 7682
+[2018-08-06 14:42:20,476] [django.server:124] [INFO] "GET /admin/user/userprofile/ HTTP/1.1" 200 7350
+[2018-08-06 14:42:21,662] [django.server:124] [INFO] "GET /admin/user/userprofile/1/change/ HTTP/1.1" 200 33830
+[2018-08-06 14:42:21,716] [django.server:124] [INFO] "GET /admin/jsi18n/ HTTP/1.1" 200 7682
+[2018-08-06 14:42:33,915] [django.server:124] [INFO] "GET /admin/user/userprofile/ HTTP/1.1" 200 7350
+[2018-08-06 14:42:51,165] [django.server:124] [INFO] "GET /admin/user/ HTTP/1.1" 200 8498
+[2018-08-06 14:42:55,013] [django.server:124] [INFO] "GET /admin/user/question/ HTTP/1.1" 200 3080
+[2018-08-06 14:42:55,101] [django.server:124] [INFO] "GET /admin/jsi18n/ HTTP/1.1" 200 7682
+[2018-08-06 14:42:56,916] [django.server:124] [INFO] "GET /admin/user/ HTTP/1.1" 200 8498
+[2018-08-06 14:42:59,172] [django.server:124] [INFO] "GET /admin/user/actionrecord/ HTTP/1.1" 200 3088
+[2018-08-06 14:42:59,232] [django.server:124] [INFO] "GET /admin/jsi18n/ HTTP/1.1" 200 7682
+[2018-08-06 14:43:01,520] [django.server:124] [INFO] "GET /admin/user/actionrecord/add/ HTTP/1.1" 200 6215
+[2018-08-06 14:43:01,571] [django.server:124] [INFO] "GET /admin/jsi18n/ HTTP/1.1" 200 7682
+[2018-08-06 14:43:07,589] [django.server:124] [INFO] "GET /admin/user/actionrecord/ HTTP/1.1" 200 3088
+[2018-08-06 14:43:08,407] [django.server:124] [INFO] "GET /admin/user/ HTTP/1.1" 200 8498
+[2018-08-06 14:43:10,501] [django.server:124] [INFO] "GET /admin/user/dataimport/ HTTP/1.1" 200 3114
+[2018-08-06 14:43:10,574] [django.server:124] [INFO] "GET /admin/jsi18n/ HTTP/1.1" 200 7682
+[2018-08-06 14:43:13,329] [django.server:124] [INFO] "GET /admin/user/ HTTP/1.1" 200 8498
+[2018-08-06 14:43:16,901] [django.server:124] [INFO] "GET /admin/user/usermessage/ HTTP/1.1" 200 3086
+[2018-08-06 14:43:16,948] [django.server:124] [INFO] "GET /admin/jsi18n/ HTTP/1.1" 200 7682
+[2018-08-06 14:43:18,057] [django.server:124] [INFO] "GET /admin/user/ HTTP/1.1" 200 8498
+[2018-08-06 14:43:18,531] [django.server:124] [INFO] "GET /admin/user/userprofile/ HTTP/1.1" 200 7350
+[2018-08-06 14:44:27,964] [django.request:135] [ERROR] Internal Server Error: /api/electronic_board/login
+Traceback (most recent call last):
+  File "C:\Users\Administrator\AppData\Local\Programs\Python\Python36\lib\site-packages\django\core\handlers\exception.py", line 41, in inner
+    response = get_response(request)
+  File "C:\Users\Administrator\AppData\Local\Programs\Python\Python36\lib\site-packages\django\core\handlers\base.py", line 244, in _legacy_get_response
+    response = middleware_method(request)
+  File "C:\Users\Administrator\AppData\Local\Programs\Python\Python36\lib\site-packages\django\middleware\common.py", line 63, in process_request
+    path = self.get_full_path_with_slash(request)
+  File "C:\Users\Administrator\AppData\Local\Programs\Python\Python36\lib\site-packages\django\middleware\common.py", line 101, in get_full_path_with_slash
+    'url': request.get_host() + new_path,
+RuntimeError: You called this URL via POST, but the URL doesn't end in a slash and you have APPEND_SLASH set. Django can't redirect to the slash URL while maintaining POST data. Change your form to point to 127.0.0.1:8000/api/electronic_board/login/ (note the trailing slash), or set APPEND_SLASH=False in your Django settings.
+[2018-08-06 14:44:28,046] [django.server:124] [ERROR] "POST /api/electronic_board/login HTTP/1.1" 500 74630
+[2018-08-06 14:44:43,068] [django.server:124] [INFO] "POST /api/electronic_board/login/ HTTP/1.1" 200 129
+[2018-08-06 14:45:25,614] [django.server:124] [WARNING] "GET /api/electronic_board/class_info/ HTTP/1.1" 400 117
+[2018-08-06 15:06:33,773] [django.server:124] [INFO] "GET /admin/user/ HTTP/1.1" 200 8498
+[2018-08-06 15:14:59,829] [django.server:124] [INFO] "GET /api/electronic_board/login HTTP/1.1" 301 0
+[2018-08-06 15:14:59,838] [django.server:124] [WARNING] "GET /api/electronic_board/login/ HTTP/1.1" 400 114
+[2018-08-06 15:15:04,241] [django.request:135] [ERROR] Internal Server Error: /api/electronic_board/login
+Traceback (most recent call last):
+  File "C:\Users\Administrator\AppData\Local\Programs\Python\Python36\lib\site-packages\django\core\handlers\exception.py", line 41, in inner
+    response = get_response(request)
+  File "C:\Users\Administrator\AppData\Local\Programs\Python\Python36\lib\site-packages\django\core\handlers\base.py", line 244, in _legacy_get_response
+    response = middleware_method(request)
+  File "C:\Users\Administrator\AppData\Local\Programs\Python\Python36\lib\site-packages\django\middleware\common.py", line 63, in process_request
+    path = self.get_full_path_with_slash(request)
+  File "C:\Users\Administrator\AppData\Local\Programs\Python\Python36\lib\site-packages\django\middleware\common.py", line 101, in get_full_path_with_slash
+    'url': request.get_host() + new_path,
+RuntimeError: You called this URL via POST, but the URL doesn't end in a slash and you have APPEND_SLASH set. Django can't redirect to the slash URL while maintaining POST data. Change your form to point to 127.0.0.1:8000/api/electronic_board/login/ (note the trailing slash), or set APPEND_SLASH=False in your Django settings.
+[2018-08-06 15:15:04,298] [django.server:124] [ERROR] "POST /api/electronic_board/login HTTP/1.1" 500 74630
+[2018-08-06 15:15:08,084] [django.server:124] [INFO] "POST /api/electronic_board/login/ HTTP/1.1" 200 129
+[2018-08-06 15:16:09,219] [django.server:124] [WARNING] "GET /api/electronic_board/class_info/ HTTP/1.1" 400 105
+[2018-08-06 15:16:49,768] [django.server:124] [INFO] "POST /api/electronic_board/login/ HTTP/1.1" 200 129
+[2018-08-06 15:17:02,771] [django.server:124] [INFO] "POST /api/electronic_board/login/ HTTP/1.1" 200 129
+[2018-08-06 15:17:28,682] [django.server:124] [WARNING] "GET /api/electronic_board/class_info/ HTTP/1.1" 400 117
